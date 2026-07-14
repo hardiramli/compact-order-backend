@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    void save(Order order);
+    void save(OrderReq orderReq);
 
     List<Order> getAllOrder();
 

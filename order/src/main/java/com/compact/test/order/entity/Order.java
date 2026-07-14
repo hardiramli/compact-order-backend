@@ -23,6 +23,6 @@ public class Order {
     private Integer amount;
 
     @Column
-    private Long totalOrder;
+    private Date transactionDate;
 
 }

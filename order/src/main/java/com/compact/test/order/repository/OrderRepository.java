@@ -11,13 +11,10 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
         SELECT customer,
         COUNT(*) total_orders,
         SUM(amount) total_sales,
-        AVG(amount) avg_order
         FROM orders
-        WHERE order_date >= :date
         GROUP BY customer
-        HAVING SUM(amount) > 1000
+        HAVING SUM(amount) > 100
         ORDER BY total_sales DESC
-            
             
             """,nativeQuery=true)
     List<Object[]> getUserReport();
