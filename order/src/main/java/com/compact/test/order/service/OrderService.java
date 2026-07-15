@@ -11,6 +11,8 @@ public interface OrderService {
 
     List<Order> getAllOrder();
 
+    List<String> getAllCustomer();
+
     List<Object[]> getUserReport();
 
 

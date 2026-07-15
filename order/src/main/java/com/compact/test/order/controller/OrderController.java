@@ -35,6 +35,13 @@ public class OrderController {
         return new ResponseEntity<>(userReport, HttpStatus.OK);
     }
 
+    @GetMapping("/cust-list")
+    public ResponseEntity<?> showCustomers(){
+        log.info("Show customer list");
+        List<String> userReport = orderService.getAllCustomer();
+        return new ResponseEntity<>(userReport, HttpStatus.OK);
+    }
+
     @GetMapping("/show-all")
     public ResponseEntity<?> showOrderAll(){
         log.info("Show order table entry");

@@ -1,7 +1,9 @@
-FROM openjdk:17-jdk-slim
+FROM amazoncorretto:17
 
-COPY target/*.jar order.jar
+ARG JAR_FILE=target/*.jar
+
+COPY ${JAR_FILE} order-0.0.1-SNAPSHOT.jar
 
 CMD apt-get update -y
 
-ENTRYPOINT ["java","-jar","/order.jar"]
+ENTRYPOINT ["java","-jar","order-0.0.1-SNAPSHOT.jar"]

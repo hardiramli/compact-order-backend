@@ -7,6 +7,7 @@ import com.compact.test.order.service.dto.OrderReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
         order.setProductName(orderReq.getProductName());
         order.setCustomer(orderReq.getCustomer());
         order.setAmount(orderReq.getAmount());
-
+        order.setTransactionDate(new Date());
         orderRepository.save(order);
     }
 
@@ -29,6 +30,12 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getAllOrder() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public List<String> getAllCustomer() {
+        return orderRepository.findAll().stream().map(Order::getCustomer).sorted().toList();
+    }
+
 
     @Override
     public List<Object[]> getUserReport(){
