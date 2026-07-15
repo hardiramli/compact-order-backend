@@ -5,6 +5,7 @@ import com.compact.test.order.repository.OrderRepository;
 import com.compact.test.order.service.OrderService;
 import com.compact.test.order.service.dto.OrderReq;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
