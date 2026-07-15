@@ -1,5 +1,6 @@
 package com.compact.test.order.controller;
 
+import com.compact.test.order.entity.Order;
 import com.compact.test.order.service.OrderService;
 import com.compact.test.order.service.dto.OrderReq;
 import lombok.AllArgsConstructor;
@@ -27,14 +28,21 @@ public class OrderController {
     public ResponseEntity<?> saveOrder(@RequestBody OrderReq req){
         log.info("Register order "+ req.getCustomer() +" "+ req.getProductName());
         orderService.save(req);
-        return new ResponseEntity<req, HttpStatus.OK>();
+        return new ResponseEntity<>(req, HttpStatus.OK);
     }
 
     @GetMapping("/reports")
     public ResponseEntity<?> showOrderSummary(){
         log.info("Show order summary");
         List<Object[]> userReport = orderService.getUserReport();
-        return new ResponseEntity<userReport, HttpStatus.OK>
+        return new ResponseEntity<>(userReport, HttpStatus.OK);
+    }
+
+    @GetMapping("/show-all")
+    public ResponseEntity<?> showOrderSummary(){
+        log.info("Show order table entry");
+        List<Order> userReport = orderService.getAllOrder();
+        return new ResponseEntity<>(userReport, HttpStatus.OK);
     }
 
 }
