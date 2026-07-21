@@ -17,7 +17,7 @@ public class Order {
     private Long id;
 
     @Column
-    private String productName;
+    private Long productId;
 
     @Column
     private String customer;

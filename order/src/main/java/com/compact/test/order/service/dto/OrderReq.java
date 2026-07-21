@@ -5,11 +5,10 @@ import lombok.Data;
 @Data
 public class OrderReq {
 
-    private String productName;
+    private Long productId;
 
     private String customer;
 
     private Integer amount;
 
-    private Long totalOrder;
 }

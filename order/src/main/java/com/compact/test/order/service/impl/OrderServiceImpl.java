@@ -19,7 +19,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void save(OrderReq orderReq) {
         Order order = new Order();
-        order.setProductName(orderReq.getProductName());
+        order.setProductId(orderReq.getProductId());
         order.setCustomer(orderReq.getCustomer());
         order.setAmount(orderReq.getAmount());
         order.setTransactionDate(new Date());
